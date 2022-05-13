@@ -2,8 +2,7 @@ package constants;
 
 /**
  * DB関連の項目値を定義するインターフェース
- * ※インターフェースに定義した変数は public static final 修飾子がついているとみなされる
- *
+ * ※インターフェイスに定義した変数は public static final 修飾子がついているとみなされる
  */
 public interface JpaConst {
 
@@ -25,10 +24,10 @@ public interface JpaConst {
     String EMP_COL_UPDATED_AT = "updated_at"; //更新日時
     String EMP_COL_DELETE_FLAG = "delete_flag"; //削除フラグ
 
-    int ROLE_ADMIN = 1; //管理者権限ON（管理者）
-    int ROLE_GENERAL = 0; //管理者権限OFF（一般）
-    int EMP_DEL_TRUE = 1; //削除フラグON（削除済み）
-    int EMP_DEL_FALSE = 0; //削除フラグOFF（現役）
+    int ROLE_ADMIN = 1; //管理者権限ON(管理者)
+    int ROLE_GENERAL = 0; //管理者権限OFF(一般)
+    int EMP_DEL_TRUE = 1; //削除フラグON(削除済み)
+    int EMP_DEL_FALSE = 0; //削除フラグOFF(現役)
 
     //日報テーブル
     String TABLE_REP = "reports"; //テーブル名
@@ -51,27 +50,27 @@ public interface JpaConst {
     String JPQL_PARM_EMPLOYEE = "employee"; //従業員
 
     //NamedQueryの nameとquery
-    //すべての従業員をidの降順に取得する
+    //全ての従業員をidの降順に取得する
     String Q_EMP_GET_ALL = ENTITY_EMP + ".getAll"; //name
     String Q_EMP_GET_ALL_DEF = "SELECT e FROM Employee AS e ORDER BY e.id DESC"; //query
     //全ての従業員の件数を取得する
     String Q_EMP_COUNT = ENTITY_EMP + ".count";
-    String Q_EMP_COUNT_DEF = "SWLECT COUNT(e) FROM Employee AS e";
+    String Q_EMP_COUNT_DEF = "SELECT COUNT(e) FROM Employee AS e";
     //社員番号とハッシュ化済パスワードを条件に未削除の従業員を取得する
     String Q_EMP_GET_BY_CODE_AND_PASS = ENTITY_EMP + ".getByCodeAndPass";
-    String Q_EMP_GET_BY_CODE_AND_PASS_DEF = "SELECT e FROM Employee AS e WHERE e.deleteFlag = 0 AND e.code = :" + JPQL_PARM_CODE + "AND e.password = :" + JPQL_PARM_PASSWORD;
+    String Q_EMP_GET_BY_CODE_AND_PASS_DEF = "SELECT e FROM Employee AS e WHERE e.deleteFlag = 0 AND e.code = :" + JPQL_PARM_CODE + " AND e.password = :" + JPQL_PARM_PASSWORD;
     //指定した社員番号を保持する従業員の件数を取得する
     String Q_EMP_COUNT_RESISTERED_BY_CODE = ENTITY_EMP + ".countRegisteredByCode";
     String Q_EMP_COUNT_RESISTERED_BY_CODE_DEF = "SELECT COUNT(e) FROM Employee AS e WHERE e.code = :" + JPQL_PARM_CODE;
     //全ての日報をidの降順に取得する
     String Q_REP_GET_ALL = ENTITY_REP + ".getAll";
-    String Q_REP_GET_ALL_DEF = "SELECT r FROM Report AS r PRDER BY r.id DESC";
+    String Q_REP_GET_ALL_DEF = "SELECT r FROM Report AS r ORDER BY r.id DESC";
     //全ての日報の件数を取得する
     String Q_REP_COUNT = ENTITY_REP + ".count";
     String Q_REP_COUNT_DEF = "SELECT COUNT(r) FROM Report AS r";
-    //指定した従業員が作成した日報の全件idの降順で取得する
+    //指定した従業員が作成した日報を全件idの降順で取得する
     String Q_REP_GET_ALL_MINE = ENTITY_REP + ".getAllMine";
-    String Q_REP_GET_ALL_MINE_DEF = "SELECT r FROM Report AS r WHERE r.employee = :" + JPQL_PARM_EMPLOYEE;
+    String Q_REP_GET_ALL_MINE_DEF = "SELECT r FROM Report AS r WHERE r.employee = :" + JPQL_PARM_EMPLOYEE + " ORDER BY r.id DESC";
     //指定した従業員が作成した日報の件数を取得する
     String Q_REP_COUNT_ALL_MINE = ENTITY_REP + ".countAllMine";
     String Q_REP_COUNT_ALL_MINE_DEF = "SELECT COUNT(r) FROM Report AS r WHERE r.employee = :" + JPQL_PARM_EMPLOYEE;

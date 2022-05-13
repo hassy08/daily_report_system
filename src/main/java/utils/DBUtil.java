@@ -15,7 +15,7 @@ public class DBUtil {
         return _getEntityManagerFactory().createEntityManager();
     }
 
-    //EntityMAnagerFactoryインスタンスを生成
+    //EntityManagerFactoryインスタンスを生成
     private static EntityManagerFactory _getEntityManagerFactory() {
         if (emf == null) {
             emf = Persistence.createEntityManagerFactory(JpaConst.PERSISTENCE_UNIT_NAME);

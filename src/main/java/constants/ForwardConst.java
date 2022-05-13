@@ -1,7 +1,7 @@
 package constants;
 
 /**
- * リクエストパラメータの変数名、変数値、jspファイルの名前等画面遷移に関わる値を定義するEnumクラス
+ * リクエストパラメーターの変数名、変数値、jspファイルの名前等画面遷移に関わる値を定義するEnumクラス
  *
  */
 public enum ForwardConst {
@@ -16,8 +16,10 @@ public enum ForwardConst {
     //command
     CMD("command"),
     CMD_NONE(""),
+    CMD_INDEX("index"),
     CMD_SHOW("show"),
     CMD_SHOW_LOGIN("showLogin"),
+    CMD_LOGIN("login"),
     CMD_LOGOUT("logout"),
     CMD_NEW("entryNew"),
     CMD_CREATE("create"),
@@ -30,7 +32,7 @@ public enum ForwardConst {
     FW_TOP_INDEX("topPage/index"),
     FW_LOGIN("login/login"),
     FW_EMP_INDEX("employees/index"),
-    FW_EMP_SHOW("employees/new"),
+    FW_EMP_SHOW("employees/show"),
     FW_EMP_NEW("employees/new"),
     FW_EMP_EDIT("employees/edit"),
     FW_REP_INDEX("reports/index"),
@@ -51,9 +53,10 @@ public enum ForwardConst {
     }
 
     /**
-     * 値（文字列）取得
+     * 値(文字列)取得
      */
     public String getValue() {
         return this.text;
     }
+
 }
