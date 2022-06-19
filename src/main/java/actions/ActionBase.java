@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletContext;
@@ -61,7 +62,7 @@ public abstract class ActionBase {
             //パラメータからcommandを取得
             String command = request.getParameter(ForwardConst.CMD.getValue());
 
-            //ommandに該当するメソッドを実行する
+            //commandに該当するメソッドを実行する
             //(例: action=Employee command=show の場合 EmployeeActionクラスのshow()メソッドを実行する)
             commandMethod = this.getClass().getDeclaredMethod(command, new Class[0]);
             commandMethod.invoke(this, new Object[0]); //メソッドに渡す引数はなし
@@ -184,6 +185,18 @@ public abstract class ActionBase {
             return LocalDate.now();
         }
         return LocalDate.parse(strDate);
+    }
+
+    /**
+     * 文字列をLocalDatetime型に変換する
+     * @param strDatetime 変換前文字列
+     * @return 変換後LocalDatetimeインスタンス
+     */
+    protected LocalDateTime toLocalDatetime(String strDatetime) {
+        if (strDatetime == null || strDatetime.equals("")) {
+            return LocalDateTime.now();
+        }
+        return LocalDateTime.parse(strDatetime);
     }
 
     /**
