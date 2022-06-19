@@ -181,6 +181,7 @@ public abstract class ActionBase {
      * @return 変換後LocalDateインスタンス
      */
     protected LocalDate toLocalDate(String strDate) {
+        //System.out.println()
         if (strDate == null || strDate.equals("")) {
             return LocalDate.now();
         }

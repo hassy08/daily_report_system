@@ -177,6 +177,7 @@ public class AttendanceAction extends ActionBase {
 
         //idを条件に勤怠データを取得する
         AttendanceView av = service.findOne(toNumber(getRequestParam(AttributeConst.ATT_ID)));
+        System.out.println("ATT_ID_1=" + getRequestParam(AttributeConst.ATT_ID));
 
         //セッションからログイン中の従業員情報を取得
         EmployeeView ev = (EmployeeView) getSessionScope(AttributeConst.LOGIN_EMP);
@@ -210,7 +211,10 @@ public class AttendanceAction extends ActionBase {
 
             //idを条件に勤怠データを取得する
             AttendanceView av = service.findOne(toNumber(getRequestParam(AttributeConst.ATT_ID)));
+            //AttendanceView av = service.findOne(toNumber(getRequestParam(AttributeConst.ATT_ID)));
+            System.out.println("ATT_ID=" + getRequestParam(AttributeConst.ATT_ID));
             System.out.println(getRequestParam(AttributeConst.ATT_DATE));
+            System.out.println("toLocaldate="+toLocalDate(getRequestParam(AttributeConst.ATT_DATE)));
 
             //入力された勤怠内容を設定する
             av.setAttendanceDate(toLocalDate(getRequestParam(AttributeConst.ATT_DATE)));

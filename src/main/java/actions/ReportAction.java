@@ -205,6 +205,7 @@ public class ReportAction extends ActionBase {
 
             //idを条件に日報データを取得する
             ReportView rv = service.findOne(toNumber(getRequestParam(AttributeConst.REP_ID)));
+            //System.out.println("REP_ID=" +getRequestParam(AttributeConst.REP_ID));
 
             //入力された日報内容を設定する
             rv.setReportDate(toLocalDate(getRequestParam(AttributeConst.REP_DATE)));
