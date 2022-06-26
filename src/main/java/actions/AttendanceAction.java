@@ -217,9 +217,15 @@ public class AttendanceAction extends ActionBase {
             System.out.println("toLocaldate="+toLocalDate(getRequestParam(AttributeConst.ATT_DATE)));
 
             //入力された勤怠内容を設定する
+            LocalDate day = LocalDate.parse(getRequestParam(AttributeConst.ATT_DATE));
+            LocalTime time3 = LocalTime.parse(getRequestParam(AttributeConst.ATT_STARTED_AT));
+            LocalTime time4 = LocalTime.parse(getRequestParam(AttributeConst.ATT_LEAVED_AT));
+            LocalDateTime datetime3 = LocalDateTime.of(day, time3);
+            LocalDateTime datetime4 = LocalDateTime.of(day, time4);
+
             av.setAttendanceDate(toLocalDate(getRequestParam(AttributeConst.ATT_DATE)));
-            av.setStartedAt(toLocalDatetime(getRequestParam(AttributeConst.ATT_STARTED_AT)));
-            av.setLeavedAt(toLocalDatetime(getRequestParam(AttributeConst.ATT_LEAVED_AT)));
+            av.setStartedAt(datetime3);
+            av.setLeavedAt(datetime4);
 
             //日報データを更新する
             List<String> errors = service.update(av);

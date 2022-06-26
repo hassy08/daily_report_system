@@ -30,6 +30,6 @@
 <label for="${AttributeConst.ATT_LEAVED_AT.getValue()}">退社時間</label><br />
 <input type="time" name="${AttributeConst.ATT_LEAVED_AT.getValue()}" value="<fmt:formatDate value='${leavedAt}' pattern='HH:mm:ss' />" />
 <br /><br />
-<input type="hidden" name="${AttributeConst.ATT_ID.getValue()}" value="${sttendance.id}" />
+<input type="hidden" name="${AttributeConst.ATT_ID.getValue()}" value="${attendance.id}" />
 <input type="hidden" name="${AttributeConst.TOKEN.getValue()}" value="${_token}" />
 <button type="submit">投稿</button>
