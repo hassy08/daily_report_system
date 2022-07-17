@@ -73,12 +73,12 @@ public class Attendance {
     /**
      * 出勤時間
      */
-    @Column(name = JpaConst.ATT_COL_STARTED_AT, nullable = true)
+    @Column(name = JpaConst.ATT_COL_STARTED_AT, nullable = false)
     private LocalDateTime startedAt;
 
     /**
      * 退勤時間
      */
-    @Column(name = JpaConst.ATT_COL_LEAVED_AT, nullable = true)
+    @Column(name = JpaConst.ATT_COL_LEAVED_AT, nullable = false)
     private LocalDateTime leavedAt;
 }
